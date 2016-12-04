@@ -1,19 +1,11 @@
 package org.firstinspires.ftc.robotcontroller.external.samples;
-import org.firstinspires.ftc.robotcontroller.external.samples.MecanumDrive;
 
-import com.qualcomm.ftccommon.DbgLog;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.I2cDevice;
-import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.LightSensor;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.hardware.adafruit.AdafruitBNO055IMU;
 
-import java.util.ArrayList;
-
-public class MecanumWheels extends OpMode
+public class MecanumAaron extends OpMode
 {
 
     //Declares name of DcMotors
@@ -32,7 +24,7 @@ public class MecanumWheels extends OpMode
 
     //GyroSensor aGyro;
 
-    Servo buttonServo;
+    //Servo buttonServo;
 
     DcMotor motorCol;
     DcMotor motorPop;
@@ -49,7 +41,7 @@ public class MecanumWheels extends OpMode
         //motorCol.setDirection(DcMotor.Direction.REVERSE);
         //motorUR.setDirection(DcMotor.Direction.REVERSE);
         //color = (SensorAdafruitRGB) hardwareMap.colorSensor.get("color");
-        buttonServo = hardwareMap.servo.get("bServo");
+
         //gyro = hardwareMap.i2cDevice.get("aGyro");
         //aGyro = hardwareMap.gyroSensor.get("aGyro");
         //DeviceInterfaceModule
@@ -88,21 +80,6 @@ public class MecanumWheels extends OpMode
             {
                 drive.move(1, 0, 0, 0);
             }
-        //Servo Button
-            double button = 180;
-            if(gamepad1.x)
-            {
-                button = -180;
-            }
-            else if(gamepad1.b)
-            {
-                button = 0;
-            }
-            else if(gamepad1.a)
-            {
-                button = 360;
-            }
-            buttonServo.setPosition(button);
         //Collector
             motorCol.setPower(gamepad2.right_trigger);
             //motorUL.setPower(lift);
