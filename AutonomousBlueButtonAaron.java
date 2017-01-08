@@ -14,7 +14,7 @@ import com.qualcomm.robotcore.hardware.I2cController;
 import com.qualcomm.robotcore.util.Range;
 import com.qualcomm.hardware.adafruit.AdafruitBNO055IMU;
 
-public class AutonomousRedButtonAaron extends LinearOpMode
+public class AutonomousBlueButtonAaron extends LinearOpMode
 {
     //Declares name of DcMotors
     DcMotor motorRF;            //Gamepad 1: right stick and left stick
@@ -79,21 +79,23 @@ public class AutonomousRedButtonAaron extends LinearOpMode
         mecaMovement(0,0);
         sleep(100);
 
-        movement(-1,1);//turn left
+        movement(1,-1);//turn left
         sleep(729);
 
-        mecaMovement(90,0.5);
+        mecaMovement(270,0.5);
         sleep(550);
 
-        mecaMovement(0,0.5);
-        sleep(500);
-
-        mecaMovement(315, 0.5);
+        mecaMovement(45, 0.5);
         sleep(4500);
+
+        mecaMovement(180, 0.5);
+        sleep(500);
 
         mecaMovement(0,0);//nah
         sleep(500);
 
+        mecaMovement(90,0.5);
+        sleep(1000);
 
         mecaMovement(270, 0.35);
         while (light.getLightDetected() <= 0.4)
@@ -102,14 +104,14 @@ public class AutonomousRedButtonAaron extends LinearOpMode
             sleep(1);
         }
         mecaMovement(90,0.5);
-        sleep(400);
+        sleep(370);
 
         mecaMovement(0,0);//nah?
         sleep(500);
 
         telemetry.addData("Red  ", buttonColor.red());
         telemetry.addData("Blue ", buttonColor.blue());
-        if(buttonColor.blue() < buttonColor.red())
+        if(buttonColor.blue() > buttonColor.red())
         {
             mecaMovement(0,0.35);
             sleep(1300);
@@ -125,10 +127,10 @@ public class AutonomousRedButtonAaron extends LinearOpMode
             sleep(400);
 
         }
-        mecaMovement(270, 0.4);
+        mecaMovement(90, 0.4);
         sleep(200);
 
-        mecaMovement(270,0.5);
+        mecaMovement(90,0.5);
         sleep(1000);
         mecaMovement(0,0.35);
         sleep(1700);
@@ -136,21 +138,21 @@ public class AutonomousRedButtonAaron extends LinearOpMode
         sleep(700);
 
 
-        mecaMovement(270, 0.35);
+        mecaMovement(90, 0.35);
         while (light.getLightDetected() <= 0.4)
         {
             //telemetry.addData("Light  ", light.getLightDetected());
             sleep(1);
         }
-        mecaMovement(90,0.5);
-        sleep(400);
+        mecaMovement(270,0.5);
+        sleep(100);
 
         mecaMovement(0,0);//nah?
         sleep(500);
 
         telemetry.addData("Red  ", buttonColor.red());
         telemetry.addData("Blue ", buttonColor.blue());
-        if(buttonColor.blue() < buttonColor.red())
+        if(buttonColor.blue() > buttonColor.red())
         {
             mecaMovement(0,0.35);
             sleep(1300);
@@ -166,8 +168,8 @@ public class AutonomousRedButtonAaron extends LinearOpMode
             sleep(400);
 
         }
+        mecaMovement(0, 0);
         sleep(200);
-        mecaMovement(0,0);
 
         telemetry.addLine("Did it work???");
     }
